@@ -2,18 +2,18 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import plotly_express as px
+import plotly.express as px
 
 st.title("Test Streamlit Page :heart:")
 st.header("This is my first test workbook")
 st.write("hello world :smile:")
 
 ## NAME
-my_str = st.text_input('What is your name?')
+my_str = st.text_input('Enter name?')
 st.text(f'Hello {my_str}')
 
 ## NUMBER
-number = st.slider("What is your age?", 0,100)
+number = st.slider("Enter age?", 0,100)
 number
 
 ## Adding Data
@@ -24,7 +24,7 @@ cols = df.columns
 pick = st.selectbox("Choose an option", cols)
 pick
 
-fig = px.bar(df, x='Region', y='Sales')
+fig = px.scatter(df, x='Region', y='Sales')
 st.plotly_chart(fig)
 
 # # Bar graph to show 
