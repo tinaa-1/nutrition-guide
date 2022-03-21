@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 
-st.title("Test Streamlit Page")
+st.title("Test Streamlit Page :heart:")
 st.header("This is my first test workbook")
 st.write("hello world :smile:")
 
@@ -22,15 +22,14 @@ pick = st.selectbox("Choose an option", option)
 pick
 
 
-
-
+df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
+df.head()
+df.columns()
 
 
 
 """
-# Welcome to Streamlit!
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-## [documentation](https://docs.streamlit.io)
-## [community forums](https://discuss.streamlit.io)
+### [documentation](https://docs.streamlit.io)
+### [community forums](https://discuss.streamlit.io)
 """
 
