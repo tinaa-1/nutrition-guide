@@ -19,10 +19,12 @@ number
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
 cols = df.columns
-cols
 ## SELECT BOX
 pick = st.selectbox("Choose an option", cols)
 pick
+
+fig = px.bar(df, x=pick, y='Sales')
+st.plotly_chart(fig)
 
 head = df.head()
 head
