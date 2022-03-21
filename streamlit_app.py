@@ -2,7 +2,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import plotly as px
+import plotly_express as px
 
 st.title("Test Streamlit Page :heart:")
 st.header("This is my first test workbook")
