@@ -21,11 +21,10 @@ option = ["Food", "Music", "Games", "Movies"]
 pick = st.selectbox("Choose an option", option)
 pick
 
-
+## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
-df.head()
-df.columns()
-
+head = df.head()
+head
 
 
 """
