@@ -7,7 +7,7 @@ import streamlit as st
 st.title("Hello world")
 st.header("This is a test workbook")
 
-my str = st.text_input('What is your name?')
+my_str = st.text_input('What is your name?')
 st.text(f'Hello {my_str}')
 
 
