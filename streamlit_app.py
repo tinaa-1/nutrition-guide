@@ -1,9 +1,8 @@
-from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import plotly.express as px
+import plotly as px
 
 st.title("Test Streamlit Page :heart:")
 st.header("This is my first test workbook")
@@ -31,7 +30,6 @@ st.plotly_chart(fig)
 # # Bar graph to show 
 # fig = px.bar(df, x=pick, y='Sales')
 # st.plotly_chart(fig)
-
 
 head = df.head()
 head
