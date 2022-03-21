@@ -16,15 +16,17 @@ st.text(f'Hello {my_str}')
 number = st.slider("What is your age?", 0,100)
 number
 
-## SELECT BOX
-option = ["Food", "Music", "Games", "Movies"]
-pick = st.selectbox("Choose an option", option)
-pick
-
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
+cols = df.columns
+cols
+## SELECT BOX
+pick = st.selectbox("Choose an option", cols)
+pick
+
 head = df.head()
 head
+
 
 
 """
