@@ -4,10 +4,11 @@ import math
 import pandas as pd
 import streamlit as st
 
-st.title("Hello DS4")
-st.header("DS3 > DS4 == True")
+st.title("Hello world")
+st.header("This is a test workbook")
 
-
+my str = st.text_input('What is your name?')
+st.text(f'Hello {my_str}')
 
 
 
