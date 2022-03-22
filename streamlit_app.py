@@ -2,7 +2,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import plotly.express as px
+# import plotly.express as px
 
 st.title("Test Streamlit Page :heart:")
 st.header("This is my first test workbook")
@@ -24,8 +24,8 @@ cols = df.columns
 pick = st.selectbox("Choose an option", cols)
 pick
 
-fig = px.scatter(df, x='Region', y='Sales')
-st.plotly_chart(fig)
+# fig = px.scatter(df, x='Region', y='Sales')
+# st.plotly_chart(fig)
 
 # # Bar graph to show 
 # fig = px.bar(df, x=pick, y='Sales')
