@@ -22,8 +22,12 @@ age = st.slider("Enter age:", 0,100)
 active_levels = ['Inactive', 'Lightly Active', 'Moderately Active']
 group = st.selectbox("Choose activity level:", active_levels)
 
+## SELECT DIET
+diet_pref = ['Non-veg', 'Vegetarian', 'Vegan', 'Pescatarian', 'Gluten free']
+diets = st.selectbox("Choose dietary preference:", diet_pref)
+
 st.write(f'Personalisation for {name}')
-gender, age, group
+gender, age, group, diets
 
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
