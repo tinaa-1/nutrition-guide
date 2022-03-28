@@ -8,23 +8,23 @@ st.title("Nutrition Tracker :heart:")
 #st.header("This is my first test workbook")
 st.write("Personalised Nutrition function to recommend what food to eat for the day to reach nutritional targets of: Calories, Protein,Fat, Fibre & Carbs. :smile:")
 
-## Text....
-# my_str = st.text_input('Enter name?')
-# st.text(f'Hello {my_str}')
+## NAME
+name = st.text_input('Enter name:')
 
 ## SELECT GENDER
-sex = ['Female', 'Male', 'Non-binary']
+sex = ['Female', 'Male', 'Other']
 gender = st.selectbox("Choose Gender:", sex)
-gender
 
 ## SELECT AGE
 age = st.slider("Enter age:", 0,100)
-age
 
 ## SELECT GROUP
 active_levels = ['Inactive', 'Lightly Active', 'Moderately Active']
 group = st.selectbox("Choose activity level:", active_levels)
-group
+
+st.text(f'Personalisation for')
+st.text(f'Hello {name}', gender, age, group)
+
 
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
