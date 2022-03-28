@@ -26,7 +26,8 @@ group = st.selectbox("Choose activity level:", active_levels)
 diet_pref = ['Non-veg', 'Vegetarian', 'Vegan', 'Pescatarian', 'Gluten free']
 diets = st.selectbox("Choose dietary preference:", diet_pref)
 
-st.header(f'Personalisation for {name}') gender, age, group, diets
+st.header(f'Personalisation for {name}') 
+gender, age, group, diets
 
 st.header('Recommended daily intake:')
 
