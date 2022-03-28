@@ -6,7 +6,7 @@ import streamlit as st
 
 st.title("Nutrition Tracker :heart:")
 #st.header("This is my first test workbook")
-st.write("Personalised Nutrition function to recommend what food to eat for the day to reach nutritional targets of: Calories, Protein,Fat, Fibre & Carbs. :smile:")
+st.write("Personalised Nutrition tracker to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
 
 ## NAME
 name = st.text_input('Enter name:')
@@ -22,9 +22,8 @@ age = st.slider("Enter age:", 0,100)
 active_levels = ['Inactive', 'Lightly Active', 'Moderately Active']
 group = st.selectbox("Choose activity level:", active_levels)
 
-st.text(f'Personalisation for')
-st.text(f'Hello {name}', gender, age, group)
-
+st.write(f'Personalisation for {name}')
+gender, age, group
 
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
