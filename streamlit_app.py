@@ -26,16 +26,16 @@ group = st.selectbox("Choose activity level:", active_levels)
 diet_pref = ['Non-veg', 'Vegetarian', 'Vegan', 'Pescatarian', 'Gluten free']
 diets = st.selectbox("Choose dietary preference:", diet_pref)
 
-st.write(f'Personalisation for {name}')
-gender, age, group, diets
+st.header(f'Personalisation for {name}') gender, age, group, diets
+
+st.header('Recommended daily intake:')
 
 ## Adding Data
 df = pd.read_csv("https://raw.githubusercontent.com/jeaggo/tc3068/master/Superstore.csv")
-cols = df.columns
+
 
 # fig = px.scatter(df, x='Region', y='Sales')
 # st.plotly_chart(fig)
-
 # # Bar graph to show 
 # fig = px.bar(df, x=pick, y='Sales')
 # st.plotly_chart(fig)
