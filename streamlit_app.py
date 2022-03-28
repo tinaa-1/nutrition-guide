@@ -11,9 +11,9 @@ st.write("Personalised Nutrition tracker to recommend what food to eat for the d
 ## NAME
 name = st.text_input('Enter name:')
 
-## SELECT GENDER
-sex = ['Female', 'Male', 'Other']
-gender = st.selectbox("Choose Gender:", sex)
+## SELECT SEX
+sex = ['Female', 'Male']
+gender = st.selectbox("Choose Sex:", sex)
 
 ## SELECT AGE
 age = st.slider("Enter age:", 0,100)
