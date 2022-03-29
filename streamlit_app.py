@@ -41,7 +41,7 @@ def macro_calc(sex, age, activity):
   print(f'  of which Fat: {daily_fat:.0f}cals')
   
 macro_output = macro_calc(select_sex, select_age, select_activity)
-macro_output
+st.write(macro_output)
 
 # fig = px.scatter(df, x='Region', y='Sales')
 # st.plotly_chart(fig)
