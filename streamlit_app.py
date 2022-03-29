@@ -35,13 +35,14 @@ def macro_calc(sex, age, activity):
   daily_carbs = (daily_calories/100)*45
   daily_protein = (daily_calories/100) *35
   daily_fat = (daily_calories/100)*20 
-  print(f'Total daily Calorie intake: {daily_calories}cals')
-  print(f'  of which Carbs: {daily_carbs:.0f}cals')
-  print(f'  of which Protein: {daily_protein:.0f}cals')
-  print(f'  of which Fat: {daily_fat:.0f}cals')
+  return daily_carbs, daily_protein, daily_fat
+#   print(f'Total daily Calorie intake: {daily_calories}cals')
+#   print(f'  of which Carbs: {daily_carbs:.0f}cals')
+#   print(f'  of which Protein: {daily_protein:.0f}cals')
+#   print(f'  of which Fat: {daily_fat:.0f}cals')
   
-macro_output = macro_calc(select_sex, select_age, select_activity)
-st.write('test')
+daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
+st.write(f'{daily_carbs}')
 
 # fig = px.scatter(df, x='Region', y='Sales')
 # st.plotly_chart(fig)
