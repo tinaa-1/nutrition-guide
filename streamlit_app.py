@@ -35,9 +35,9 @@ def macro_calc(sex, age, activity):
   daily_carbs = (daily_calories/100)*45
   daily_protein = (daily_calories/100) *35
   daily_fat = (daily_calories/100)*20 
-  return daily_carbs, daily_protein, daily_fat
+  return daily_calories, daily_carbs, daily_protein, daily_fat
   
-daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
+daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
 st.write(f'Total daily Calorie intake: {daily_calories}cals')
 st.write(f'  of which Carbs: {daily_carbs:.0f}cals')
 st.write(f'  of which Protein: {daily_protein:.0f}cals')
