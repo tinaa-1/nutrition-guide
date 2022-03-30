@@ -37,12 +37,13 @@ daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, s
 
 st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
 click1 = st.button("Calculate daily target calories")
-st.header('Recommended daily intakes:')
+
 if click1:
+  st.subheader('Recommended daily intakes:')
   st.write(f'Total Calories: {daily_calories} cals')
-  st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
-  st.write(f'  of which Protein: {daily_protein:.0f} cals')
-  st.write(f'  of which Fat: {daily_fat:.0f} cals')
+    st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
+    st.write(f'  of which Protein: {daily_protein:.0f} cals')
+    st.write(f'  of which Fat: {daily_fat:.0f} cals')
 
 
 # fig = px.scatter(df, x='Region', y='Sales')
