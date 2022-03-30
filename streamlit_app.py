@@ -44,7 +44,7 @@ if click1:
   st.write(f'  of which Protein: {daily_protein:.0f} cals')
   st.write(f'  of which Fat: {daily_fat:.0f} cals')
   
- df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSA-4GwaF1Ymi0mZWJGaXhQEQhBxYhMKJ_GrxsFDo1e83kSAHi0fFfrWIEJkzcB4IBaANuhUMd-IF1S/pub?gid=1836603224&single=true&output=csv")
+df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSA-4GwaF1Ymi0mZWJGaXhQEQhBxYhMKJ_GrxsFDo1e83kSAHi0fFfrWIEJkzcB4IBaANuhUMd-IF1S/pub?gid=1836603224&single=true&output=csv")
  
 ## FOOD RECOMMEND FUNCTION
 def food_func(sex, age, activity, diet_pref):  
