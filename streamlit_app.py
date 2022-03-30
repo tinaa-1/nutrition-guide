@@ -43,11 +43,13 @@ if click1:
   st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
   st.write(f'  of which Protein: {daily_protein:.0f} cals')
   st.write(f'  of which Fat: {daily_fat:.0f} cals')
+  
+ df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSA-4GwaF1Ymi0mZWJGaXhQEQhBxYhMKJ_GrxsFDo1e83kSAHi0fFfrWIEJkzcB4IBaANuhUMd-IF1S/pub?gid=1836603224&single=true&output=csv")
  
 ## FOOD RECOMMEND FUNCTION
 def food_func(sex, age, activity, diet_pref):  
 ## Macro Calculator:
-  daily_calories = cal_df.loc[(cal_df['Sex']== sex) & (cal_df['Age_group'] == age), activity].iat[0]
+  daily_calories = df2.loc[(df2['Sex']== sex) & (df2['Age_group'] == age), activity].iat[0]
   ## macro intakes, in cals
   daily_carbs = (daily_calories/100)*51
   daily_protein = (daily_calories/100)*25
@@ -91,13 +93,10 @@ def food_func(sex, age, activity, diet_pref):
   
   meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)
   meal_plan
+  
   st.write(f'Total Calories: {N}kcal, \n Total Carbs: {C}g / {C*4} cals, \n Total Protein: {P}g / {P*4} cals, \n Total Fats: {F}g / {F*9} cals')  
 
 
-  
-  
-  
-  
   
   
   
