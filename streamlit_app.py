@@ -3,8 +3,8 @@ import math
 import pandas as pd
 import streamlit as st
 # import plotly.express as px
-
-st.title("Nutrition Tracker :heart:")
+st.title(":heart::pie::broccoli::cut_of_meat::stuffed_flatbread:")
+st.title("Personalised Nutrition Guide")
 #st.header("This is my first test workbook")
 st.write("Personalised Nutrition tracker to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
 
@@ -41,9 +41,9 @@ click1 = st.button("Calculate daily target calories")
 if click1:
   st.subheader('Recommended daily intakes:')
   st.write(f'Total Calories: {daily_calories} cals')
-    st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
-    st.write(f'  of which Protein: {daily_protein:.0f} cals')
-    st.write(f'  of which Fat: {daily_fat:.0f} cals')
+  st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
+  st.write(f'  of which Protein: {daily_protein:.0f} cals')
+  st.write(f'  of which Fat: {daily_fat:.0f} cals')
 
 
 # fig = px.scatter(df, x='Region', y='Sales')
