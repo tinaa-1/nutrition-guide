@@ -38,11 +38,13 @@ def macro_calc(sex, age, activity):
   return daily_calories, daily_carbs, daily_protein, daily_fat
   
 daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
-st.write(f'Total daily Calorie intake: {daily_calories}cals')
-st.write(f'  of which Carbs: {daily_carbs:.0f}cals')
-st.write(f'  of which Protein: {daily_protein:.0f}cals')
-st.write(f'  of which Fat: {daily_fat:.0f}cals')
 
+click1 = st.button("Calculate daily target calories")
+if click1:
+  st.write(f'Total daily Calorie intake: {daily_calories}cals')
+  st.write(f'  of which Carbs: {daily_carbs:.0f}cals')
+  st.write(f'  of which Protein: {daily_protein:.0f}cals')
+  st.write(f'  of which Fat: {daily_fat:.0f}cals')
 
 
 # fig = px.scatter(df, x='Region', y='Sales')
