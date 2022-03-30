@@ -2,6 +2,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import random 
 # import plotly.express as px
 st.title(":heart::pie::broccoli::cut_of_meat::stuffed_flatbread:")
 st.title("Personalised Nutrition Guide")
