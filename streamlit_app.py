@@ -37,15 +37,70 @@ daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, s
 
 st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
 click1 = st.button("Calculate daily target calories")
-
 if click1:
   st.subheader('Recommended daily intakes:')
   st.write(f'Total Calories: {daily_calories} cals')
   st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
   st.write(f'  of which Protein: {daily_protein:.0f} cals')
   st.write(f'  of which Fat: {daily_fat:.0f} cals')
+ 
+## FOOD RECOMMEND FUNCTION
+def food_func(sex, age, activity, diet_pref):  
+## Macro Calculator:
+  daily_calories = cal_df.loc[(cal_df['Sex']== sex) & (cal_df['Age_group'] == age), activity].iat[0]
+  ## macro intakes, in cals
+  daily_carbs = (daily_calories/100)*51
+  daily_protein = (daily_calories/100)*25
+  daily_fat = (daily_calories/100)*24 
+  ## macro intakes in grams
+  carb_grams = (daily_carbs/4)
+  prot_grams = (daily_protein/4)
+  fat_grams = (daily_fat/9)
+  if diet_pref == 'Meat':
+    Categories = [('Vegetables',3),('Fruits',2),('Breads, Carbs',3),('Meat, Poultry',2),('Fish, Seafood',1),
+                    ('Dairy products',2),('Desserts, sweets',1)]
+  elif diet_pref == 'Pescatarian':
+    Categories = [('Vegetables',3),('Fruits',2),('Breads, Carbs',3),('Fish, Seafood',2),('Legumes, Nuts',1),
+                    ('Dairy products',2),('Desserts, sweets',1)]
+  elif diet_pref == 'Vegetarian':
+    Categories = [('Vegetables',2),('Fruits',2),('Breads, Carbs',4),('Dairy products',2),('Desserts, sweets',1),
+                   ('Legumes, Nuts',2),('Vegetables',1)]
+  random.seed(5)
+  N=0
+  P=0
+  C=0
+  F=0
+  meal_plan = pd.DataFrame()
+  my_lst = [0,1,2,3,4,5,6]
+  while (N <= daily_calories) and (C <= carb_grams) and (P <= prot_grams) and (F <= fat_grams):
+    try:
+      i = random.choice(my_lst)
+    except:
+      break
+    meal1 = df.loc[df.Category == Categories[i][0]].sample(n=Categories[i][1])     
+    N += int(meal1['Calories'].sum())
+    P += int(meal1['Protein'].sum())
+    C += int(meal1['Carbs'].sum())
+    F += int(meal1['Fat'].sum())
+    my_lst.remove(i)
+    if (N <= daily_calories) and (C <= carb_grams) and (P <= prot_grams) and (F <= fat_grams):  
+      meal_plan = pd.concat([meal1, meal_plan])   
+    else: 
+      break 
+    return meal plan, N, C, P, F
+  
+  meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)
+  meal_plan
+  st.write(f'Total Calories: {N}kcal, \n Total Carbs: {C}g / {C*4} cals, \n Total Protein: {P}g / {P*4} cals, \n Total Fats: {F}g / {F*9} cals')  
 
 
+  
+  
+  
+  
+  
+  
+  
 # fig = px.scatter(df, x='Region', y='Sales')
 # st.plotly_chart(fig)
 # # Bar graph to show 
