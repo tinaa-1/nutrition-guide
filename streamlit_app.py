@@ -94,7 +94,7 @@ def food_func(sex, age, activity, diet_pref):
   
 meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)  
 
-click2 = st.button("Calculate daily target calories")
+click2 = st.button("Recommend a meal plan")
 if click2:
   meal_plan
   st.write(f'Total Calories: {N}kcal, \n Total Carbs: {C}g / {C*4} cals, \n Total Protein: {P}g / {P*4} cals, \n Total Fats: {F}g / {F*9} cals')
