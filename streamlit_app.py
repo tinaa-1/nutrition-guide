@@ -20,7 +20,7 @@ select_age = st.selectbox("Select age group:", age_group)
 active_levels = ['Lightly_active', 'Moderately_active','Very_active']
 select_activity = st.selectbox("Select activity level:", active_levels)
 ## SELECT DIET
-diet_pref = ['Non_vegetarian', 'Pescatarian', 'Vegetarian', 'Vegan']
+diet_pref = ['Meat', 'Pescatarian', 'Vegetarian']
 select_diet = st.selectbox("Choose dietary preference:", diet_pref)
 
 st.write(f'Personalisation for {name}: {select_sex}, {select_age}, {select_activity}, {select_diet}')
@@ -32,8 +32,8 @@ df2 = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQbkqBZkrJ0UI
 def macro_calc(sex, age, activity):
   daily_calories = df2.loc[(df2['Sex']== sex) & (df2['Age_group'] == age), activity].iat[0]
   ## Daily intakes for Protein , Fat, Carbs
-  daily_carbs = (daily_calories/100)*45
-  daily_protein = (daily_calories/100) *35
+  daily_carbs = (daily_calories/100)*50
+  daily_protein = (daily_calories/100) *30
   daily_fat = (daily_calories/100)*20 
   return daily_calories, daily_carbs, daily_protein, daily_fat
   
@@ -42,6 +42,8 @@ st.write(f'Total daily Calorie intake: {daily_calories}cals')
 st.write(f'  of which Carbs: {daily_carbs:.0f}cals')
 st.write(f'  of which Protein: {daily_protein:.0f}cals')
 st.write(f'  of which Fat: {daily_fat:.0f}cals')
+
+
 
 # fig = px.scatter(df, x='Region', y='Sales')
 # st.plotly_chart(fig)
