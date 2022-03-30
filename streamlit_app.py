@@ -23,9 +23,6 @@ select_activity = st.selectbox("Select activity level:", active_levels)
 diet_pref = ['Meat', 'Pescatarian', 'Vegetarian']
 select_diet = st.selectbox("Choose dietary preference:", diet_pref)
 
-st.write(f'Personalisation for {name}: {select_sex}, {select_age}, {select_activity}, {select_diet}')
-st.header('Recommended daily intake:')
-
 ## Adding Data
 df2 = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQbkqBZkrJ0UInBODre8XPpk1gu-cUqZ9LCv584QoK4sPgc3GYLE2lrQHruQXprkbCg7VsoWbcHsnRr/pub?gid=2020990196&single=true&output=csv")
 ## Maco Calculator
@@ -35,16 +32,17 @@ def macro_calc(sex, age, activity):
   daily_carbs = (daily_calories/100)*50
   daily_protein = (daily_calories/100) *30
   daily_fat = (daily_calories/100)*20 
-  return daily_calories, daily_carbs, daily_protein, daily_fat
-  
+  return daily_calories, daily_carbs, daily_protein, daily_fat  
 daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
 
+st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
 click1 = st.button("Calculate daily target calories")
+st.header('Recommended daily intakes:')
 if click1:
-  st.write(f'Total daily Calorie intake: {daily_calories}cals')
-  st.write(f'  of which Carbs: {daily_carbs:.0f}cals')
-  st.write(f'  of which Protein: {daily_protein:.0f}cals')
-  st.write(f'  of which Fat: {daily_fat:.0f}cals')
+  st.write(f'Total Calories: {daily_calories} cals')
+  st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
+  st.write(f'  of which Protein: {daily_protein:.0f} cals')
+  st.write(f'  of which Fat: {daily_fat:.0f} cals')
 
 
 # fig = px.scatter(df, x='Region', y='Sales')
