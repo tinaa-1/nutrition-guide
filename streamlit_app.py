@@ -90,7 +90,7 @@ def food_func(sex, age, activity, diet_pref):
       meal_plan = pd.concat([meal1, meal_plan])   
     else: 
       break 
-    return meal_plan, N, C, P, F
+  return meal_plan, N, C, P, F
   
 meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)  
 
