@@ -37,13 +37,13 @@ def macro_calc(sex, age, activity):
 daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
 
 st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
-click1 = st.button("Calculate daily target calories")
-if click1:
-  st.subheader('Recommended daily intakes:')
-  st.write(f'Total Calories: {daily_calories} cals')
-  st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
-  st.write(f'  of which Protein: {daily_protein:.0f} cals')
-  st.write(f'  of which Fat: {daily_fat:.0f} cals')
+# click1 = st.button("Calculate daily target calories")
+# if click1:
+#   st.subheader('Recommended daily intakes:')
+#   st.write(f'Total Calories: {daily_calories} cals')
+#   st.write(f'  of which Carbs: {daily_carbs:.0f} cals')
+#   st.write(f'  of which Protein: {daily_protein:.0f} cals')
+#   st.write(f'  of which Fat: {daily_fat:.0f} cals')
   
 df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSA-4GwaF1Ymi0mZWJGaXhQEQhBxYhMKJ_GrxsFDo1e83kSAHi0fFfrWIEJkzcB4IBaANuhUMd-IF1S/pub?gid=1836603224&single=true&output=csv")
  
@@ -107,4 +107,3 @@ if click2:
 # st.plotly_chart(fig)
 ### [documentation](# https://docs.streamlit.io)
 ### [community forums](# https://discuss.streamlit.io)
-
