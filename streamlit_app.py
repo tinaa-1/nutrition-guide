@@ -3,11 +3,10 @@ import math
 import pandas as pd
 import streamlit as st
 import random 
-# import plotly.express as px
+import plotly.express as px
 st.title(":heart::pie::broccoli::cut_of_meat::stuffed_flatbread:")
 st.title("Personalised Nutrition Guide")
-#st.header("This is my first test workbook")
-st.write("Personalised Nutrition tracker to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
+st.subheader("Personalised Nutrition guide to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
 
 ## NAME
 name = st.text_input('Enter name:')
@@ -36,7 +35,6 @@ def macro_calc(sex, age, activity):
   return daily_calories, daily_carbs, daily_protein, daily_fat  
 daily_calories, daily_carbs, daily_protein, daily_fat = macro_calc(select_sex, select_age, select_activity)
 
-st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
 # click1 = st.button("Calculate daily target calories")
 # if click1:
 #   st.subheader('Recommended daily intakes:')
@@ -52,8 +50,8 @@ def food_func(sex, age, activity, diet_pref):
 ## Macro Calculator:
   daily_calories = df2.loc[(df2['Sex']== sex) & (df2['Age_group'] == age), activity].iat[0]
   ## macro intakes, in cals
-  daily_carbs = (daily_calories/100)*51
-  daily_protein = (daily_calories/100)*25
+  daily_carbs = (daily_calories/100)*49
+  daily_protein = (daily_calories/100)*27
   daily_fat = (daily_calories/100)*24 
   ## macro intakes in grams
   carb_grams = (daily_carbs/4)
@@ -67,7 +65,7 @@ def food_func(sex, age, activity, diet_pref):
                     ('Dairy products',2),('Desserts, sweets',1)]
   elif diet_pref == 'Vegetarian':
     Categories = [('Vegetables',2),('Fruits',2),('Breads, Carbs',4),('Dairy products',2),('Desserts, sweets',1),
-                   ('Legumes, Nuts',2),('Vegetables',1)]
+                   ('Legumes, Nuts',3),('Vegetables',1)]
   random.seed(5)
   N=0
   P=0
@@ -93,11 +91,18 @@ def food_func(sex, age, activity, diet_pref):
   return meal_plan, N, C, P, F
   
 meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)  
-
+chart_data = pd.DataFrame(meal_plan,
+     columns=["Calories", "Carbs", "Protein","Fat])
+              
 click2 = st.button("Recommend a meal plan")
 if click2:
+  st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
   meal_plan
-  st.write(f'Total Calories: {N}kcal, \n Total Carbs: {C}g / {C*4} cals, \n Total Protein: {P}g / {P*4} cals, \n Total Fats: {F}g / {F*9} cals')
+  st.write(f'Total Calories: {N}kcal')
+  st.write(f'Total Carbs: {C}g / {C*4} cals')
+  st.write(f'Total Protein: {P}g / {P*4} cals')
+  st.write(f'Total Fats: {F}g / {F*9} cals')
+  st.bar_chart(chart_data)
 
   
 # fig = px.scatter(df, x='Region', y='Sales')
