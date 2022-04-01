@@ -91,8 +91,7 @@ def food_func(sex, age, activity, diet_pref):
   return meal_plan, N, C, P, F
   
 meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)  
-chart_data = pd.DataFrame(meal_plan,
-     columns=["Calories", "Carbs", "Protein","Fat])
+chart_data = pd.DataFrame(meal_plan, columns=["Calories", "Carbs", "Protein","Fat"])
               
 click2 = st.button("Recommend a meal plan")
 if click2:
