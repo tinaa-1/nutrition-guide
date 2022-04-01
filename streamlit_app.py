@@ -5,7 +5,7 @@ import streamlit as st
 import random 
 st.title(":heart::pie::broccoli::cut_of_meat::stuffed_flatbread:")
 st.title("Personalised Nutrition Guide")
-st.subheader("Personalised Nutrition guide to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
+st.write("Personalised Nutrition Guide to recommend meal plan inspirations, to reach your personal macro nutritional targets of: Calories, Carbs, Protein & Fat :smile:")
 
 ## NAME
 name = st.text_input('Enter name:')
@@ -90,11 +90,11 @@ def food_func(sex, age, activity, diet_pref):
   return meal_plan, N, C, P, F
   
 meal_plan, N, C, P, F = food_func(select_sex, select_age, select_activity, select_diet)  
-chart_data = pd.DataFrame(meal_plan, columns=["Calories", "Carbs", "Protein","Fat"])
+chart_data = pd.DataFrame(meal_plan, x='Food', columns=["Carbs", "Protein","Fat"])
               
 click2 = st.button("Recommend a meal plan")
 if click2:
-  st.write(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
+  st.subheader(f'Personalisation for {name}: {select_sex},  {select_age},  {select_activity},  {select_diet}')
   meal_plan
   st.write(f'Total Calories: {N}kcal')
   st.write(f'Total Carbs: {C}g / {C*4} cals')
