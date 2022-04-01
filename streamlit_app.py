@@ -3,7 +3,6 @@ import math
 import pandas as pd
 import streamlit as st
 import random 
-import plotly.express as px
 st.title(":heart::pie::broccoli::cut_of_meat::stuffed_flatbread:")
 st.title("Personalised Nutrition Guide")
 st.subheader("Personalised Nutrition guide to recommend what food to eat for the day, to reach your personal nutritional targets of: Calories, Protein, Fat, Fibre & Carbs. :smile:")
